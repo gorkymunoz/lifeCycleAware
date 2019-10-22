@@ -3,6 +3,7 @@ package com.example.lifecycleaware
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.lifecycle.ViewModelProviders
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -13,7 +14,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        data = MainActivityDataGenerator()
+        //data = MainActivityDataGenerator()
+
+        data = ViewModelProviders.of(this)
+            .get(MainActivityDataGenerator::class.java)
+
         val myRandomNumber = data.getNumber()
         tvNumber.text = myRandomNumber
         Log.d(TAG, "Random Number Set")

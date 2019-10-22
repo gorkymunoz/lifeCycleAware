@@ -1,9 +1,10 @@
 package com.example.lifecycleaware
 
 import android.util.Log
+import androidx.lifecycle.ViewModel
 import java.util.*
 
-class MainActivityDataGenerator{
+class MainActivityDataGenerator: ViewModel(){
 
     private lateinit var myRandomNumber:String
 
