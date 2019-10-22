@@ -14,6 +14,21 @@ class MainActivity : AppCompatActivity() {
         lifecycle.addObserver(MainActivityObserver())
     }
 
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG,"Owner onStart")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG,"Owner onResume")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG,"Owner onPause")
+    }
+
     companion object{
         val TAG : String = MainActivity::class.java.simpleName
     }
