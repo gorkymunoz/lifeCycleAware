@@ -8,18 +8,16 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var data: MainActivityDataGenerator
+    lateinit var model: MainActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //data = MainActivityDataGenerator()
+        model = ViewModelProviders.of(this)
+            .get(MainActivityViewModel::class.java)
 
-        data = ViewModelProviders.of(this)
-            .get(MainActivityDataGenerator::class.java)
-
-        val myRandomNumber = data.getNumber()
+        val myRandomNumber = model.getNumber()
         tvNumber.text = myRandomNumber
         Log.d(TAG, "Random Number Set")
     }
