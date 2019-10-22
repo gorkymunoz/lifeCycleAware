@@ -2,6 +2,7 @@ package com.example.lifecycleaware
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 
 class MainActivity : AppCompatActivity() {
 
@@ -9,6 +10,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        Log.d(TAG,"Owner onCreate")
         lifecycle.addObserver(MainActivityObserver())
+    }
+
+    companion object{
+        val TAG : String = MainActivity::class.java.simpleName
     }
 }
